@@ -6,4 +6,12 @@ pub enum VaultError {
     Unauthorized,
     #[msg("Vault is paused")]
     Paused,
+    #[msg("Amount must be greater than zero")]
+    ZeroAmount,
+    #[msg("Deposit would exceed the vault cap")]
+    DepositCapExceeded,
+    #[msg("Result is below the requested minimum (slippage)")]
+    SlippageExceeded,
+    #[msg("Math overflow")]
+    MathOverflow,
 }

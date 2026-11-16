@@ -14,6 +14,8 @@ pub struct Vault {
     pub vault_token_account: Pubkey,
     /// Max total assets the vault accepts (0 = no limit).
     pub deposit_cap: u64,
+    /// Book value (in underlying) of tokens moved out of the vault account into strategies.
+    pub deployed_assets: u64,
     pub paused: bool,
     pub bump: u8,
     pub authority_bump: u8,
@@ -25,6 +27,11 @@ impl Vault {
     pub fn authority_seeds<'a>(vault: &'a Pubkey, bump: &'a [u8; 1]) -> [&'a [u8]; 3] {
         [AUTHORITY_SEED, vault.as_ref(), bump]
     }
+
+    /// Idle tokens in the vault account plus the book value deployed into strategies.
+    pub fn total_assets(&self, idle: u64) -> u64 {
+        idle.saturating_add(self.deployed_assets)
+    }
 }
 
 /// Per-user bookkeeping: PDA ["user", vault, owner].
@@ -33,5 +40,8 @@ impl Vault {
 pub struct UserPosition {
     pub owner: Pubkey,
     pub vault: Pubkey,
+    /// Lifetime totals in underlying tokens (informational).
+    pub total_deposited: u64,
+    pub total_withdrawn: u64,
     pub bump: u8,
 }

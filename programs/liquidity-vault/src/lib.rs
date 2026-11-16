@@ -3,6 +3,7 @@ use anchor_lang::prelude::*;
 pub mod constants;
 pub mod error;
 pub mod instructions;
+pub mod math;
 pub mod state;
 
 use instructions::*;
@@ -29,5 +30,10 @@ pub mod liquidity_vault {
         paused: Option<bool>,
     ) -> Result<()> {
         update_config::handler(ctx, deposit_cap, paused)
+    }
+
+    /// Deposits underlying tokens and mints share tokens to the user.
+    pub fn deposit(ctx: Context<Deposit>, amount: u64, min_shares_out: u64) -> Result<()> {
+        deposit::handler(ctx, amount, min_shares_out)
     }
 }

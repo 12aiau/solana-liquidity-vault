@@ -28,6 +28,8 @@ pub fn handler(ctx: Context<InitUser>) -> Result<()> {
     ctx.accounts.user_position.set_inner(UserPosition {
         owner: ctx.accounts.owner.key(),
         vault: ctx.accounts.vault.key(),
+        total_deposited: 0,
+        total_withdrawn: 0,
         bump: ctx.bumps.user_position,
     });
     Ok(())

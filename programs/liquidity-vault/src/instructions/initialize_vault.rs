@@ -56,6 +56,7 @@ pub fn handler(ctx: Context<InitializeVault>, deposit_cap: u64) -> Result<()> {
         share_mint: ctx.accounts.share_mint.key(),
         vault_token_account: ctx.accounts.vault_token_account.key(),
         deposit_cap,
+        deployed_assets: 0,
         paused: false,
         bump: ctx.bumps.vault,
         authority_bump: ctx.bumps.vault_authority,
