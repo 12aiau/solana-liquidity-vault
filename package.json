@@ -5,7 +5,8 @@
     "lint": "prettier */*.js \"*/**/*{.js,.ts}\" --check",
     "task11": "ts-node --transpile-only scripts/11-create-pool.ts",
     "task12": "ts-node --transpile-only scripts/12-vault-swap.ts",
-    "task13": "ts-node --transpile-only scripts/13-vault-position.ts"
+    "task13": "ts-node --transpile-only scripts/13-vault-position.ts",
+    "faucet": "ts-node --transpile-only scripts/faucet.ts"
   },
   "dependencies": {
     "@coral-xyz/anchor": "^0.31.1",
