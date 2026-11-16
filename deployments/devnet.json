@@ -6,6 +6,11 @@
   "ammConfig": "CD4aJtX11cqTCAc83nxSPkkh5JW2yjD6uwHeovjqQ1qu",
   "txs": {
     "createPool": "2LgQBeFHsg9ZTryNxsZLuUd2Bkhv49aZmwxhTuhWLRekVgcFpz7JXm3M54pZnmT9cPUEt1QXw5NRaqm75w3xQvSV",
-    "seedLiquidity": "27A3RLEPYf8h3mNyeBK32tN4HurmFW5nfAvdCUaY6jXsao12d2rYaVKz4ruGGnvtJHhM6kiNY44DpFHgrL9sEcfN"
-  }
+    "seedLiquidity": "27A3RLEPYf8h3mNyeBK32tN4HurmFW5nfAvdCUaY6jXsao12d2rYaVKz4ruGGnvtJHhM6kiNY44DpFHgrL9sEcfN",
+    "initializeVault": "5RKFEmfoFR8tWN1QDxv8ai6xb2TE64qn6urNeKxXx78A1qWsm2apzqEbbDucYwoK6DUbM6WierTE5PBnxUEzqtig",
+    "initUser": "679pei1u6muxzsaDSqcrWYnFCKY364qxSUQMAzcGEa8tRjmWuSfT42wD6ksCfRXezT1AEKGQqpc7M7fzQprwLHeg",
+    "deposit10000": "4iHJGquTGQyE2fmrNETCnVqTAemEJLDNPbWozeokMUw6dSheAmur9vLc7hbFuDfA5UttJ7zanYyTzWYrHW38Ej64",
+    "vaultSwap": "2ToUHN8CcNy6jsjB3tBErm4ZaYKQ4Fm5qW7nWbm9cZDQGiyL2PvF1sSnGKFDsosgRFoP4Db1ZUksKgTvL9onsCeu"
+  },
+  "vault": "H3AXNSHYKz1kpz8ndSfzhDG1uiP4nohykzYqGqpABn1z"
 }

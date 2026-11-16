@@ -5,6 +5,9 @@ package_manager = "yarn"
 resolution = true
 skip-lint = false
 
+[programs.devnet]
+liquidity_vault = "DQiYDQPgUy7S8PP6UTyB957vL3tB234c2r7Eatddfgnu"
+
 [programs.localnet]
 liquidity_vault = "DQiYDQPgUy7S8PP6UTyB957vL3tB234c2r7Eatddfgnu"
 

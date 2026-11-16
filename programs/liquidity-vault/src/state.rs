@@ -32,6 +32,17 @@ impl Vault {
     pub fn total_assets(&self, idle: u64) -> u64 {
         idle.saturating_add(self.deployed_assets)
     }
+
+    /// Updates the book value of deployed assets from the change of the idle balance
+    /// around a strategy action (swap / add / remove liquidity). Tokens that come back
+    /// above book value stay idle and raise the share price (realized profit).
+    pub fn sync_deployed(&mut self, idle_before: u64, idle_after: u64) {
+        if idle_after < idle_before {
+            self.deployed_assets = self.deployed_assets.saturating_add(idle_before - idle_after);
+        } else {
+            self.deployed_assets = self.deployed_assets.saturating_sub(idle_after - idle_before);
+        }
+    }
 }
 
 /// Per-user bookkeeping: PDA ["user", vault, owner].

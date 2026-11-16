@@ -18,4 +18,8 @@ pub enum VaultError {
     InsufficientShares,
     #[msg("Not enough idle tokens in the vault; liquidity is deployed")]
     InsufficientLiquidity,
+    #[msg("Wrong Raydium CLMM program")]
+    InvalidProgram,
+    #[msg("Token account is not owned by the vault")]
+    NotVaultTokenAccount,
 }

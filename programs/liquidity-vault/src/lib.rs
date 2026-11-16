@@ -4,6 +4,7 @@ pub mod constants;
 pub mod error;
 pub mod instructions;
 pub mod math;
+pub mod raydium;
 pub mod state;
 
 use instructions::*;
@@ -40,5 +41,15 @@ pub mod liquidity_vault {
     /// Burns share tokens and returns underlying tokens via a PDA-signed Token CPI.
     pub fn withdraw(ctx: Context<Withdraw>, shares: u64, min_amount_out: u64) -> Result<()> {
         withdraw::handler(ctx, shares, min_amount_out)
+    }
+
+    /// Admin: swaps vault tokens through a Raydium CLMM pool with a minimum-out guard.
+    pub fn swap<'info>(
+        ctx: Context<'_, '_, 'info, 'info, Swap<'info>>,
+        amount_in: u64,
+        min_amount_out: u64,
+        sqrt_price_limit_x64: u128,
+    ) -> Result<()> {
+        swap::handler(ctx, amount_in, min_amount_out, sqrt_price_limit_x64)
     }
 }
