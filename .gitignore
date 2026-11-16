@@ -5,3 +5,10 @@ target
 node_modules
 test-ledger
 .yarn
+
+# never commit keys / secrets
+keys/
+*keypair*.json
+id.json
+.env
+.env.*
