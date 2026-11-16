@@ -6,7 +6,8 @@ CLMM-пуле Raydium: обменивает токены, открывает п�
 собирает комиссии и переставляет позицию, когда цена уходит из диапазона.
 Заработанные комиссии остаются в vault и повышают цену доли.
 
-Работает в **devnet**. Пользоваться можно через веб-интерфейс, без терминала.
+Работает в **devnet**. Пользоваться можно через веб-интерфейс, без терминала:
+**https://12aiau.github.io/solana-liquidity-vault/**
 
 ## Адреса в devnet
 
@@ -24,7 +25,8 @@ CLMM-пуле Raydium: обменивает токены, открывает п�
 
 ## Веб-интерфейс
 
-Код в папке [`app/`](app) (Vite + React, Solana Wallet Adapter).
+Открыть: https://12aiau.github.io/solana-liquidity-vault/ (GitHub Pages, ветка `gh-pages`).
+Код в папке [`app/`](app) (Vite + React, Solana Wallet Adapter). Локальный запуск:
 
 ```bash
 cd app
