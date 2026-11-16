@@ -14,4 +14,8 @@ pub enum VaultError {
     SlippageExceeded,
     #[msg("Math overflow")]
     MathOverflow,
+    #[msg("Not enough share tokens")]
+    InsufficientShares,
+    #[msg("Not enough idle tokens in the vault; liquidity is deployed")]
+    InsufficientLiquidity,
 }

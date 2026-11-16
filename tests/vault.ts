@@ -165,4 +165,62 @@ describe("liquidity-vault", () => {
       await updateConfig(null, false);
     });
   });
+
+  describe("withdraw", () => {
+    const withdraw = (user: Keypair, to: anchor.web3.PublicKey, shares: number, minOut = 0) =>
+      program.methods
+        .withdraw(new anchor.BN(shares), new anchor.BN(minOut))
+        .accounts({
+          user: user.publicKey,
+          vault: pdas.vault,
+          userTokenAccount: to,
+          userShareAccount: getAssociatedTokenAddressSync(pdas.shareMint, user.publicKey),
+        })
+        .signers([user])
+        .rpc();
+
+    it("burns shares and returns tokens incl. accrued yield", async () => {
+      // alice: 100 shares, vault: 250 tokens / 125 shares -> 1 share = 2 tokens
+      const before = await tokenBalance(aliceTokens);
+      const supplyBefore = (await getMint(connection, pdas.shareMint)).supply;
+      await withdraw(alice, aliceTokens, 50 * ONE);
+      const received = (await tokenBalance(aliceTokens)) - before;
+      expect(received).to.be.closeTo(100 * ONE, 2);
+      expect(await shareBalance(alice.publicKey)).to.eq(50 * ONE);
+      expect((await getMint(connection, pdas.shareMint)).supply).to.eq(supplyBefore - BigInt(50 * ONE));
+    });
+
+    it("enforces min_amount_out (slippage)", async () => {
+      await expectError(withdraw(alice, aliceTokens, ONE, 3 * ONE), "SlippageExceeded");
+    });
+
+    it("cannot burn more shares than owned", async () => {
+      await expectError(withdraw(bob, bobTokens, 1_000 * ONE), "InsufficientShares");
+    });
+
+    it("cannot redirect another user's shares", async () => {
+      try {
+        await program.methods
+          .withdraw(new anchor.BN(ONE), new anchor.BN(0))
+          .accounts({
+            user: bob.publicKey,
+            vault: pdas.vault,
+            userTokenAccount: bobTokens,
+            userShareAccount: getAssociatedTokenAddressSync(pdas.shareMint, alice.publicKey),
+          })
+          .signers([bob])
+          .rpc();
+        expect.fail("should have thrown");
+      } catch (e: any) {
+        expect(e.error?.errorCode?.code).to.eq("ConstraintTokenOwner");
+      }
+    });
+
+    it("everyone can fully exit; the vault keeps only rounding dust", async () => {
+      await withdraw(alice, aliceTokens, await shareBalance(alice.publicKey));
+      await withdraw(bob, bobTokens, await shareBalance(bob.publicKey));
+      expect((await getMint(connection, pdas.shareMint)).supply).to.eq(0n);
+      expect(await tokenBalance(vaultTokenAccount)).to.be.lessThan(10);
+    });
+  });
 });

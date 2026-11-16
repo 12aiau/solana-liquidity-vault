@@ -36,4 +36,9 @@ pub mod liquidity_vault {
     pub fn deposit(ctx: Context<Deposit>, amount: u64, min_shares_out: u64) -> Result<()> {
         deposit::handler(ctx, amount, min_shares_out)
     }
+
+    /// Burns share tokens and returns underlying tokens via a PDA-signed Token CPI.
+    pub fn withdraw(ctx: Context<Withdraw>, shares: u64, min_amount_out: u64) -> Result<()> {
+        withdraw::handler(ctx, shares, min_amount_out)
+    }
 }
