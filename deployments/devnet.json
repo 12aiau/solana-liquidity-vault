@@ -1,0 +1,11 @@
+{
+  "mintA": "2ymb33oWsWGQMqJ9u8zA1gypynxiKs6N8DUxM4McpdAU",
+  "mintB": "APjEpWCiAwkxFEuGiojA2MBK4d2BAqd4CZJdJ5dBQexq",
+  "decimals": 6,
+  "poolId": "EMSCboYCKG6tchGfFaUXPZDjW7ffxoqpLRJ6XHDNqvjG",
+  "ammConfig": "CD4aJtX11cqTCAc83nxSPkkh5JW2yjD6uwHeovjqQ1qu",
+  "txs": {
+    "createPool": "2LgQBeFHsg9ZTryNxsZLuUd2Bkhv49aZmwxhTuhWLRekVgcFpz7JXm3M54pZnmT9cPUEt1QXw5NRaqm75w3xQvSV",
+    "seedLiquidity": "27A3RLEPYf8h3mNyeBK32tN4HurmFW5nfAvdCUaY6jXsao12d2rYaVKz4ruGGnvtJHhM6kiNY44DpFHgrL9sEcfN"
+  }
+}

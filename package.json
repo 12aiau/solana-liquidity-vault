@@ -2,12 +2,18 @@
   "license": "ISC",
   "scripts": {
     "lint:fix": "prettier */*.js \"*/**/*{.js,.ts}\" -w",
-    "lint": "prettier */*.js \"*/**/*{.js,.ts}\" --check"
+    "lint": "prettier */*.js \"*/**/*{.js,.ts}\" --check",
+    "task11": "ts-node --transpile-only scripts/11-create-pool.ts",
+    "task12": "ts-node --transpile-only scripts/12-vault-swap.ts",
+    "task13": "ts-node --transpile-only scripts/13-vault-position.ts"
   },
   "dependencies": {
     "@coral-xyz/anchor": "^0.31.1",
     "@solana/spl-token": "^0.4.9",
-    "@solana/web3.js": "^1.98.0"
+    "@solana/web3.js": "^1.98.0",
+    "@raydium-io/raydium-sdk-v2": "0.2.85-alpha",
+    "bn.js": "^5.2.1",
+    "decimal.js": "^10.4.3"
   },
   "devDependencies": {
     "chai": "^4.3.4",
@@ -17,6 +23,7 @@
     "@types/chai": "^4.3.0",
     "@types/mocha": "^9.0.0",
     "typescript": "^5.7.3",
-    "prettier": "^2.6.2"
+    "prettier": "^2.6.2",
+    "ts-node": "^10.9.2"
   }
 }
