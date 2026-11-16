@@ -45,6 +45,20 @@ impl Vault {
     }
 }
 
+/// The vault's current Raydium CLMM position: PDA ["position", vault].
+/// One active position at a time; rebalancing = close + open in a new range.
+#[account]
+#[derive(InitSpace)]
+pub struct StrategyPosition {
+    pub vault: Pubkey,
+    pub pool: Pubkey,
+    pub nft_mint: Pubkey,
+    pub tick_lower: i32,
+    pub tick_upper: i32,
+    pub active: bool,
+    pub bump: u8,
+}
+
 /// Per-user bookkeeping: PDA ["user", vault, owner].
 #[account]
 #[derive(InitSpace)]

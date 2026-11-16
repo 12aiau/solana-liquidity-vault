@@ -52,4 +52,27 @@ pub mod liquidity_vault {
     ) -> Result<()> {
         swap::handler(ctx, amount_in, min_amount_out, sqrt_price_limit_x64)
     }
+
+    /// Admin: opens a Raydium CLMM position owned by the vault in [tick_lower, tick_upper].
+    pub fn open_position<'info>(
+        ctx: Context<'_, '_, 'info, 'info, OpenPosition<'info>>,
+        args: OpenPositionArgs,
+    ) -> Result<()> {
+        position::open_handler(ctx, args)
+    }
+
+    /// Admin: removes liquidity from the position; `liquidity = 0` just collects fees.
+    pub fn decrease_liquidity<'info>(
+        ctx: Context<'_, '_, 'info, 'info, DecreaseLiquidity<'info>>,
+        liquidity: u128,
+        amount_0_min: u64,
+        amount_1_min: u64,
+    ) -> Result<()> {
+        position::decrease_handler(ctx, liquidity, amount_0_min, amount_1_min)
+    }
+
+    /// Admin: closes the empty position (burns the NFT).
+    pub fn close_position<'info>(ctx: Context<'_, '_, 'info, 'info, ClosePosition<'info>>) -> Result<()> {
+        position::close_handler(ctx)
+    }
 }

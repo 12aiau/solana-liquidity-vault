@@ -10,7 +10,14 @@
     "initializeVault": "5RKFEmfoFR8tWN1QDxv8ai6xb2TE64qn6urNeKxXx78A1qWsm2apzqEbbDucYwoK6DUbM6WierTE5PBnxUEzqtig",
     "initUser": "679pei1u6muxzsaDSqcrWYnFCKY364qxSUQMAzcGEa8tRjmWuSfT42wD6ksCfRXezT1AEKGQqpc7M7fzQprwLHeg",
     "deposit10000": "4iHJGquTGQyE2fmrNETCnVqTAemEJLDNPbWozeokMUw6dSheAmur9vLc7hbFuDfA5UttJ7zanYyTzWYrHW38Ej64",
-    "vaultSwap": "2ToUHN8CcNy6jsjB3tBErm4ZaYKQ4Fm5qW7nWbm9cZDQGiyL2PvF1sSnGKFDsosgRFoP4Db1ZUksKgTvL9onsCeu"
+    "vaultSwap": "2ToUHN8CcNy6jsjB3tBErm4ZaYKQ4Fm5qW7nWbm9cZDQGiyL2PvF1sSnGKFDsosgRFoP4Db1ZUksKgTvL9onsCeu",
+    "deposit20000": "5VobJQQmvBQTN5Et2iUcftNyQJezz2oYNBK6VGa8dRDxVCvNubU1Vs8R8fWv5Aryu4Ro9EHGuvmgch3SCzH1Fj1j",
+    "openPosition": "48iQoVT3QptZNkqNXnu69uwFur6VuNkjxnMFyqSnhRfff6YACceF8rrsGWHNCUDTU4CKfag7unm2gfxUPVVsjXjZ",
+    "collectFees": "5ZpT67WPrGVFQzEF4PkCM1Hyb3nLTZw8b531pjKWSv2tcM3xjKNvZAyuRJdY9CLxHkjmkiKa5mEFrHB6b1Lnih2G",
+    "pushPriceOutOfRange": "5gASu1UxpCuhHncj632hcFMP8a84YoiKrSN9P8WetnCugBpadWUskdn5jhkPZW3WtcWoAN2yj97nvR8DpujDSsjQ",
+    "removeLiquidity": "2zVCeHCTD3iB5ngiq46LhuTgEdtcw3LRBjJfenZGkeDb4dMDEYBUFX9eKodZmd2E14jDz1f8WL5U8g84ue8XxL23",
+    "closePosition": "2eyDmxbCQtb7PiwGkHnwPZ3AonZhC3y2psf7aAdn5nQMS6D3U3GnN8ckmqdMj4Xu4e5yun2ynw2UyZjvCeL9c4Tc",
+    "reopenPosition": "2uRxq6F8NdxTbyyBve1qV2LeKKVYEKaQ5wMQjToDv7e17cwAYysT6xAQMN24E32LbRrdTcZWNmitnBKRULBz1k9S"
   },
   "vault": "H3AXNSHYKz1kpz8ndSfzhDG1uiP4nohykzYqGqpABn1z"
 }

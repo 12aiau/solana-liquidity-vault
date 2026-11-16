@@ -22,4 +22,10 @@ pub enum VaultError {
     InvalidProgram,
     #[msg("Token account is not owned by the vault")]
     NotVaultTokenAccount,
+    #[msg("Vault already has an open position; close it first")]
+    PositionAlreadyOpen,
+    #[msg("Vault has no open position")]
+    NoActivePosition,
+    #[msg("tick_lower must be below tick_upper")]
+    InvalidRange,
 }
